@@ -19,3 +19,13 @@ function home()
 {
     require('views/frontoffice/home.php');
 }
+
+function society()
+{
+    require('views/frontoffice/society.php');
+}
+
+function contact()
+{
+    require('views/frontoffice/contact.php');
+}

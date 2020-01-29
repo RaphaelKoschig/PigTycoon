@@ -6,7 +6,13 @@ try {
         if ($_GET['action'] == 'listPigs') {
             listPigs();
         }
-        else if ($_GET['action'] == 'post') {
+        else if ($_GET['action'] == 'society') {
+            society();
+        }
+        else if ($_GET['action'] == 'contact') {
+            contact();
+        }
+        else if ($_GET['action'] == 'pig') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 pig();
             }
