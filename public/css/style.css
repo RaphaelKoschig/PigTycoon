@@ -2,3 +2,18 @@
     text-align: center;
     color: red;
 }
+
+.bg-primary {
+    background-color: pink !important;
+}
+
+body {
+    margin: 0;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    justify-content: center;
+}

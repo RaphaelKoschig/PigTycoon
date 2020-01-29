@@ -11,7 +11,7 @@ try {
                 pig();
             }
             else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiant de cochon envoyé');
             }
         }
     }
