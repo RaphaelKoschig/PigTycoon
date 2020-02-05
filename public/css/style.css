@@ -17,3 +17,9 @@ body {
 .navbar {
     justify-content: center;
 }
+
+.navbar-icons {
+    width: 1.5em;
+    float: left;
+    margin-right: 0.5em;
+}
