@@ -41,3 +41,14 @@ body {
 .newpig {
     border: solid #56CC9D;
 }
+
+/* SOCIETY */
+
+#society-presentation {
+    width: 700px;
+}
+
+#society-presentation div img {
+    width: 400px;
+    float: left;
+}
