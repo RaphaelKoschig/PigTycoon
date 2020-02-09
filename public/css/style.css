@@ -9,8 +9,9 @@
 
 body {
     margin: 0;
-    background-image: url("/public/images/others/bg2.jpg") !important;
-    background-attachment:fixed;
+    background-image: url("../images/others/bg3.jpg") !important;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 

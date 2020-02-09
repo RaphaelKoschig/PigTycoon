@@ -1,14 +1,14 @@
 <div class="container searchengine">
-    <div class="row">
-        <div class="col">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Catégorie 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Catégorie 2</a>
-                </li>
-            </ul>
+    <ul class="nav nav-pills justify-content-around" id="pills-tab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <form action="" method="post">
                 <div class="row">
                     <div class="col">
@@ -34,6 +34,9 @@
                     <button type="submit" class="btn btn-secondary mb-2">RECHERCHER</button>
                 </div>
             </form>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <p>Deuxième type de recherche</p>
         </div>
     </div>
 </div>
