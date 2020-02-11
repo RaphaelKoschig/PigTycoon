@@ -4,9 +4,19 @@
 <h1>PigTycoon</h1>
 <p>Liste de cochons</p>
 
-<div>
-    <h3>Des trucs</h3>
-</div>
+<?php
+while ($pig = $pigs->fetch()) {
+?>
+    <div class="container">
+        <h3>
+            <?= htmlspecialchars($pig['name_pig']) ?>
+            <em>né le <?= $pig['birthdate_pig'] ?></em>
+        </h3>
+    </div>
+<?php
+}
+$pigs->closeCursor();
+?>
 
 <?php $content = ob_get_clean(); ?>
 

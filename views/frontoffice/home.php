@@ -14,27 +14,24 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./public/images/photos/1.jpg" class="d-block img-fluid" alt="...">
+                    <img src="./public/images/photos/<?= $lastPigs[0]['name_photo'] ?>" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        <button type="button" class="btn btn-primary">Piggy</button>
+                        <p><?= htmlspecialchars($lastPigs[0]['name_pig']) ?></p>
+                        <a href=<?php echo("index.php?action=pig&id=".$lastPigs[0]['id_pig']) ?> ><button type="button" class="btn btn-primary">Détails</button></a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./public/images/photos/2.jpg" class="d-block img-fluid" alt="...">
+                    <img src="./public/images/photos/<?= $lastPigs[1]['name_photo'] ?>" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <button type="button" class="btn btn-primary">Piggy</button>
+                        <p><?= htmlspecialchars($lastPigs[1]['name_pig']) ?></p>
+                        <a href=<?php echo("index.php?action=pig&id=".$lastPigs[1]['id_pig']) ?>><button type="button" class="btn btn-primary">Détails</button></a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./public/images/photos/3.jpg" class="d-block img-fluid" alt="...">
+                    <img src="./public/images/photos/<?= $lastPigs[2]['name_photo'] ?>" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        <button type="button" class="btn btn-primary">Piggy</button>
+                        <p><?= htmlspecialchars($lastPigs[2]['name_pig']) ?></p>
+                        <a href=<?php echo("index.php?action=pig&id=".$lastPigs[2]['id_pig']) ?>><button type="button" class="btn btn-primary">Détails</button></a>
                     </div>
                 </div>
             </div>
