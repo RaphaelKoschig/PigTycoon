@@ -14,9 +14,7 @@ class PigManager extends Manager
                            state_pig, name_photo 
                            FROM pig
                            LEFT JOIN photo
-                           ON photo.id_photo = pig.thumbnail_pig;
-                           ');
-        //$all = $req->fetchAll(PDO::FETCH_ASSOC);
+                           ON photo.id_photo = pig.thumbnail_pig;');
         return $req;
     }
 
@@ -27,12 +25,12 @@ class PigManager extends Manager
                              id_pig, name_pig, sex_pig, 
                              weight_pig, mother_pig, father_pig, 
                              DATE_FORMAT(birthdate_pig, \'%d/%m/%Y à %Hh%imin%ss\') AS birthdate_pig,
-                             (TIMEDIFF(deathdate_pig, NOW())) AS deathtime_pig,
+                             (DATEDIFF(deathdate_pig, NOW())) AS deathtime_pig,
                              state_pig, name_photo 
                              FROM pig
                              LEFT JOIN photo
-                             ON photo.id_photo = pig.thumbnail_pig;
-                             FROM  WHERE id = ?');
+                             ON photo.id_photo = pig.thumbnail_pig
+                             WHERE id_pig = ?');
         $req->execute(array($pigId));
         $pig = $req->fetch();
 
@@ -44,14 +42,14 @@ class PigManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = "SELECT 
+        $req = ("SELECT 
                 id_pig, name_pig, weight_pig, state_pig, name_photo, type_sex
                 FROM pig
                 LEFT JOIN photo
                 ON photo.id_photo = pig.thumbnail_pig 
                 LEFT JOIN sex
                 ON sex.id_sex = pig.sex_pig
-                ORDER BY id_pig DESC LIMIT 3";
+                ORDER BY id_pig DESC LIMIT 3");
         $response = $db->query($req);
         $lastPigs = $response->fetchAll(PDO::FETCH_ASSOC);
         return $lastPigs;
@@ -70,5 +68,16 @@ class PigManager extends Manager
         $req->execute();
         $photo = $req->fetchAll(PDO::FETCH_ASSOC);
         return $photo;
+    }
+
+    // Récupère tous les cochons et compte les lignes
+    public function getCountPig()
+    {
+        $db = $this->dbConnect();
+
+        $req = ("SELECT * FROM pig");
+        $response = $db->query($req);
+        $count = $response->rowCount();
+        return $count;
     }
 }

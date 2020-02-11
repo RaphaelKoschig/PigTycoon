@@ -8,6 +8,7 @@
     <h3>
         <?= htmlspecialchars($pig['name_pig']) ?>
         <em>né le <?= $pig['birthdate_pig'] ?></em>
+        <p>Durée de vie : <?php echo ($pig['deathtime_pig'])." jours" ?></p>
     </h3>
 </div>
 
