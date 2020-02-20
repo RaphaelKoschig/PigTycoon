@@ -53,3 +53,17 @@ body {
     width: 400px;
     float: left;
 }
+
+/* TEST */
+
+.row {
+    border-style: solid;
+    border-radius: 1px !important;
+    border-color: blueviolet !important;
+}
+
+.col {
+    border-style: solid;
+    border-radius: 1px !important;
+    border-color: green;
+}

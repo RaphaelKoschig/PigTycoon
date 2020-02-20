@@ -13,8 +13,15 @@ function pig()
 
 function listPigs()
 {
+    $numpage = (!empty($_GET['page']) ? $_GET['page'] : 1);
+    $limite = 6;
+    $debut = ($numpage - 1) * $limite;
     $pigManager = new PigManager;
-    $pigs = $pigManager->getPigs();
+    $pigs = $pigManager->getPageOf6Pigs($debut, $limite);
+    $pageLimite = (($pigManager->getNumberOfAlivePigs())['total_alive_pigs'] / $limite);
+    if (($_GET['page'] > ($pageLimite + 1)) || ($_GET['page'] < 0) || !(is_numeric($_GET['page']))) {
+        header("location:index.php?action=listPigs&page=1");
+    };
 
     require('views/frontoffice/listPigs.php');
 }
@@ -25,7 +32,7 @@ function error()
 }
 
 function home()
-{   
+{
     $pigManager = new PigManager;
 
     $lastPigs = $pigManager->get3LastPig();
