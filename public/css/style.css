@@ -40,7 +40,22 @@ body {
 }
 
 .newpig {
-    border: solid #56CC9D;
+    border: solid rgb(204, 86, 86);
+    border-radius: 0.4rem;
+    margin-top: 3rem;
+    background-color: rgb(255, 238, 224);
+}
+
+/* COCHONS */
+
+.pagination {
+    width: 100%;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 auto;
 }
 
 /* SOCIETY */
@@ -55,7 +70,7 @@ body {
 }
 
 /* TEST */
-
+/*
 .row {
     border-style: solid;
     border-radius: 1px !important;
@@ -67,3 +82,4 @@ body {
     border-radius: 1px !important;
     border-color: green;
 }
+*/

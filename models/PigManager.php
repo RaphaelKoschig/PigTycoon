@@ -61,7 +61,7 @@ class PigManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT
-                             id_pig, name_pig, sex_pig, 
+                             id_pig, name_pig, sex_pig, type_sex,
                              weight_pig, mother_pig, father_pig, 
                              DATE_FORMAT(birthdate_pig, \'%d/%m/%Y à %Hh%imin%ss\') AS birthdate_pig,
                              (DATEDIFF(deathdate_pig, NOW())) AS deathtime_pig,
@@ -69,6 +69,8 @@ class PigManager extends Manager
                              FROM pig
                              LEFT JOIN photo
                              ON photo.id_photo = pig.thumbnail_pig
+                             LEFT JOIN sex
+                             ON pig.sex_pig = sex.id_sex
                              WHERE id_pig = ?');
         $req->execute(array($pigId));
         $pig = $req->fetch();
