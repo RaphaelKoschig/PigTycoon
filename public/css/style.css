@@ -69,7 +69,14 @@ body {
     float: left;
 }
 
+/* CONTACT */
+
+.contact-form {
+    margin-top: 2rem;
+}
+
 /* TEST */
+
 /*
 .row {
     border-style: solid;

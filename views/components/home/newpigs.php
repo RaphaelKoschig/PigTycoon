@@ -4,14 +4,14 @@
             <img src="./public/images/photos/<?= $randomPig1['name_photo'] ?>" alt="" width="400px" class="img-fluid">
         </div>
         <div class="col-8 align-self-center">
-        <div class="row justify-content-center">
+            <div class="row justify-content-center">
                 <h2> Cochon <?= $randomPig1['id_pig'] ?> : <?= $randomPig1['name_pig'] ?> </h2>
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est quisquam sed dolore nesciunt adipisci repellendus!
                     Modi deserunt laudantium neque, temporibus alias quidem dolor fugit, repellendus maxime eaque commodi excepturi.</p>
             </div>
             <div class="row justify-content-around">
-                <button type="button" class="btn btn-primary">CONTACT</button>
-                <a href="index.php?action=pig"><button type="button" class="btn btn-primary">DETAILS</button></a>
+                <a href="index.php?action=contact"><button type="button" class="btn btn-primary">CONTACT</button></a>
+                <a href="<?php echo ("index.php?action=pig&id=" . $randomPig1['id_pig']) ?>"><button type="button" class="btn btn-primary">DETAILS</button></a>
             </div>
         </div>
     </div>
@@ -28,8 +28,8 @@
                     Modi deserunt laudantium neque, temporibus alias quidem dolor fugit, repellendus maxime eaque commodi excepturi.</p>
             </div>
             <div class="row justify-content-around">
-                <button type="button" class="btn btn-primary">CONTACT</button>
-                <a href="index.php?action=pig"><button type="button" class="btn btn-primary">DETAILS</button></a>
+                <a href="index.php?action=contact"><button type="button" class="btn btn-primary">CONTACT</button></a>
+                <a href="<?php echo ("index.php?action=pig&id=" . $randomPig2['id_pig']) ?>"><button type="button" class="btn btn-primary">DETAILS</button></a>
             </div>
         </div>
     </div>
