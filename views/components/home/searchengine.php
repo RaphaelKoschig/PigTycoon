@@ -9,7 +9,7 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-category" role="tabpanel" aria-labelledby="pills-category-tab">
-            <form action="" method="post">
+            <form action="" method="post" id="searchForm">
                 <div class="row">
                     <div class="col">
                         <select class="form-control" id="selectSex">
@@ -19,37 +19,56 @@
                     </div>
                     <div class="col">
                         <select class="form-control" id="selectWeight">
-                            <option>Entre 0 et 5 kg</option>
-                            <option>Entre 5 et 10 kg</option>
-                            <option>Entre 10 et 15 kg</option>
-                            <option>Au dessus de 15kg</option>
+                            <option value="0">Entre 0 et 5 kg</option>
+                            <option value="5">Entre 5 et 10 kg</option>
+                            <option value="10">Entre 10 et 15 kg</option>
+                            <option value="15">Au dessus de 15kg</option>
                         </select>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-secondary mb-2">RECHERCHER</button>
+                    <button class="btn btn-secondary mb-2" id="">RECHERCHER</button>
                 </div>
             </form>
         </div>
         <div class="tab-pane fade" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
-            <form action="" method="post">
+            <form action="" method="post" id="nameForm">
                 <div class="row">
                     <div class="col">
                         <label for="pigName">Nom du cochon : </label>
-                        <input  class="form-control" type="text" name="pigName" id="pigName" autocomplete="off">
+                        <input class="form-control" type="text" name="pigName" id="pigName" autocomplete="off">
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-secondary mb-2">RECHERCHER</button>
+                    <button type="submit" class="btn btn-secondary mb-2" id="search2">RECHERCHER</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<div id='resultframe'></div>
 
 <script>
-        $("#pigName").autocomplete({
-        source: '../../service/pigs.php',
-        minLength: 2,
+
+    $("#searchForm").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            data: {
+                sex: $('#selectSex').val(),
+                weight: $('#selectWeight').val(),
+            },
+            url: 'ajax/search.php',
+            dataType: 'html',
+            cache: false,
+            success: function(data) {
+                $('#resultframe').html(data);
+            }
+        });
+    })
+
+    $("#pigName").autocomplete({
+        source: 'ajax/pigs.php',
+        minLength: 1,
     });
 </script>
