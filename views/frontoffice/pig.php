@@ -1,15 +1,28 @@
 <?php $title = 'Un cochon'; ?>
 
 <?php ob_start(); ?>
-<div class="container text-center">
-    <h1>Qu'il est beau ce cochon</h1>
-</div>
-<div class="container newpig">
+<div class="container newpig bg-primary">
     <div class="row">
-        <div class="col-4 align-self-center">
-            <img src="./public/images/photos/<?= $pig['name_photo'] ?>" alt="" width="400px" class="img-fluid">
+        <div class="col-6 align-self-center text-center">
+            <div class="row justify-content-center">
+                <a class="gallery" href="./public/images/photos/<?= $pig['name_photo'] ?>">
+                    <img src="./public/images/photos/<?= $pig['name_photo'] ?>" alt="" width="400px" class="img-fluid">
+                </a>
+            </div>
+            <div class="row justify-content-center">
+                <?php
+                while ($photo = $photos->fetch()) {
+                ?>
+                    <a class="gallery" href="./public/images/photos/<?= $photo['name_photo'] ?>">
+                        <img src="./public/images/photos/<?= $photo['name_photo'] ?>" alt="" width="100px" class="img-fluid">
+                    </a>
+                <?php
+                }
+                $photos->closeCursor();
+                ?>
+            </div>
         </div>
-        <div class="col-8 align-self-center">
+        <div class="col-6 align-self-center">
             <div class="row">
                 <h4>
                     Cochon <?= $pig['id_pig'] ?> : <?= htmlspecialchars($pig['name_pig']) ?>
@@ -25,17 +38,27 @@
                     <p>Poids : <?php echo ($pig['weight_pig']) ?> Kg</p>
                 </h5>
             </div>
-            <div class="row">
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est quisquam sed dolore nesciunt adipisci repellendus! Modi deserunt laudantium neque,
-                        temporibus alias quidem dolor fugit, repellendus maxime eaque commodi excepturi.</p>
-            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-10 align-self-center">
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est quisquam sed dolore nesciunt adipisci repellendus! Modi deserunt laudantium neque,
+                temporibus alias quidem dolor fugit, repellendus maxime eaque commodi excepturi.</p>
         </div>
     </div>
 </div>
 <div class="container">
-    <img>
 
 </div>
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery('a.gallery').colorbox({
+            opacity: 0.5,
+            rel: 'group1'
+        });
+    });
+</script>
 
 <?php $content = ob_get_clean(); ?>
 

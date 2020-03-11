@@ -7,6 +7,7 @@ function pig()
 {
     $pigManager = new PigManager;
     $pig = $pigManager->getPig($_GET['id']);
+    $photos = $pigManager->getPigPhotos($_GET['id']);
 
     require('views/frontoffice/pig.php');
 }

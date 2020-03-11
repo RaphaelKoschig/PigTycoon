@@ -1,4 +1,4 @@
-<div class="container searchengine">
+<div class="container searchengine newpig bg-primary">
     <ul class="nav nav-pills justify-content-around" id="pills-tab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="pills-category-tab" data-toggle="pill" href="#pills-category" role="tab" aria-controls="pills-category" aria-selected="true">Recherche par catégories</a>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-secondary mb-2" id="search2">RECHERCHER</button>
+                    <button type="submit" class="btn btn-warning mb-2" id="search2">RECHERCHER</button>
                 </div>
             </form>
         </div>

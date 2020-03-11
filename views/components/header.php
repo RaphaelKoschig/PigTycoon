@@ -1,12 +1,12 @@
 <div id="mainmenu">
   <nav class="navbar navbar-expand-lg navbar-light bg-primary justify-content-between">
-    <a class="navbar-brand" href="#">PigTycoon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
       <ul class="navbar-nav">
+      <a class="navbar-brand" href="index.php">PigTycoon</a>
         <li class="nav-item">
           <a class="nav-link" href="index.php"><img src="./public/images/icons/home.svg" alt="icône accueil" class="navbar-icons">Accueil</a>
         </li>
@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="./public/images/icons/gear.svg" alt="icône gestion" class="navbar-icons">
+            <img src="./public/images/icons/gear.svg" alt="icône gestion" class="navbar-icons">
             Gestion
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -41,6 +41,6 @@
     var pathname = window.location.href
     var truePathname = pathname.split('/')
     console.log(truePathname[4])
-    $('a[href="'+truePathname[4]+'"]').parent().addClass('active');
+    $('a[href="' + truePathname[4] + '"]').parent().addClass('active');
   })
 </script>

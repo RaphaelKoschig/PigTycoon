@@ -8,18 +8,20 @@
 }
 
 body {
-    margin: 0;
-    /*background-image: url("../images/others/bg3.jpg") !important;*/
+    margin-bottom: 100px;
+    background-image: url("../images/others/bg4.jpg") !important;
     background-size: cover;
     background-attachment: fixed;
 }
 
+h1 {
+    color: pink;
+    font-weight: bolder;
+    text-shadow: 2px 2px 3px rgb(44, 44, 44);
+}
+
 
 /* NAVBAR */
-
-.navbar {
-    justify-content: center;
-}
 
 .navbar-icons {
     width: 1.5em;
@@ -27,7 +29,22 @@ body {
     margin-right: 0.5em;
 }
 
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
+
 /* HOME */
+.carousel {
+    box-shadow: 3px 3px 10px rgb(44, 44, 44);
+}
 
 .carousel-inner {
     width: 500px !important;
@@ -40,10 +57,18 @@ body {
 }
 
 .newpig {
-    border: solid rgb(204, 86, 86);
+    border: 0.1rem solid rgb(204, 86, 86);
     border-radius: 0.4rem;
     margin-top: 3rem;
-    background-color: rgb(255, 238, 224);
+    box-shadow: 3px 3px 10px rgb(44, 44, 44);
+}
+
+.newpig > * {
+    margin: 1rem;
+}
+
+.newpig img {
+    margin: 0.3rem;
 }
 
 /* COCHONS */
@@ -56,6 +81,10 @@ body {
 .pagination li {
     display: inline-block;
     margin: 0 auto;
+}
+
+.card {
+    box-shadow: 2px 2px 5px rgb(44, 44, 44);
 }
 
 /* SOCIETY */

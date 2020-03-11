@@ -111,6 +111,21 @@ class PigManager extends Manager
         return $photo;
     }
 
+    public function getPigPhotos($id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare("SELECT name_photo FROM photo
+                                   INNER JOIN link_photo_pig
+                                   ON photo.id_photo = link_photo_pig.id_photo
+                                   INNER JOIN pig
+                                   ON link_photo_pig.id_pig = pig.id_pig
+                                   WHERE pig.id_pig = :id");
+        $req->bindValue('id', $id, PDO::PARAM_INT);
+        $req->execute();
+        return $req;
+    }
+
     // Récupère tous les cochons et compte les lignes
     public function getCountPig()
     {
