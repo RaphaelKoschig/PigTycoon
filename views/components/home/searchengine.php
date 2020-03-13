@@ -9,16 +9,16 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-category" role="tabpanel" aria-labelledby="pills-category-tab">
-            <form action="" method="post" id="searchForm">
+            <form action="index.php?action=listPigs&page=1" method="post" id="searchForm">
                 <div class="row">
                     <div class="col">
-                        <select class="form-control" id="selectSex">
-                            <option value="0">Mâle</option>
-                            <option value="1">Femelle</option>
+                        <select class="form-control" id="selectSex" name="selectSex">
+                            <option value="1">Mâle</option>
+                            <option value="0">Femelle</option>
                         </select>
                     </div>
                     <div class="col">
-                        <select class="form-control" id="selectWeight">
+                        <select class="form-control" id="selectWeight" name="selectWeight">
                             <option value="0">Entre 0 et 5 kg</option>
                             <option value="5">Entre 5 et 10 kg</option>
                             <option value="10">Entre 10 et 15 kg</option>
@@ -27,12 +27,12 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button class="btn btn-secondary mb-2" id="">RECHERCHER</button>
+                    <button class="btn btn-primary mb-2" id="">RECHERCHER</button>
                 </div>
             </form>
         </div>
         <div class="tab-pane fade" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
-            <form action="" method="post" id="nameForm">
+            <form action="index.php?action=listPigs&page=1" method="post" id="nameForm">
                 <div class="row">
                     <div class="col">
                         <label for="pigName">Nom du cochon : </label>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-warning mb-2" id="search2">RECHERCHER</button>
+                    <button type="submit" class="btn btn-primary mb-2" id="search2">RECHERCHER</button>
                 </div>
             </form>
         </div>
@@ -49,23 +49,6 @@
 <div id='resultframe'></div>
 
 <script>
-
-    $("#searchForm").submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            data: {
-                sex: $('#selectSex').val(),
-                weight: $('#selectWeight').val(),
-            },
-            url: 'ajax/search.php',
-            dataType: 'html',
-            cache: false,
-            success: function(data) {
-                $('#resultframe').html(data);
-            }
-        });
-    })
 
     $("#pigName").autocomplete({
         source: 'ajax/pigs.php',

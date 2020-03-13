@@ -25,6 +25,50 @@ class PigManager extends Manager
         return $req;
     }
 
+    function getPageOf6PigsSorted($sex, $weight, $debut, $limite)
+    {
+        $db = $this->dbConnect();
+
+        if ($weight != 15) {
+            $req = $db->prepare('SELECT 
+                                id_pig, name_pig, type_sex, sex_pig,
+                                weight_pig, mother_pig, father_pig, 
+                                DATE_FORMAT(birthdate_pig, \'%d/%m/%Y à %Hh%imin%ss\') AS birthdate_pig,
+                                DATE_FORMAT(deathdate_pig, \'%d/%m/%Y à %Hh%imin%ss\'),
+                                state_pig, name_photo 
+                                FROM pig
+                                LEFT JOIN photo
+                                ON photo.id_photo = pig.thumbnail_pig
+                                LEFT JOIN sex
+                                ON pig.sex_pig = sex.id_sex
+                                WHERE sex_pig = :sex AND weight_pig BETWEEN :weight AND (:weight + 5)
+                                ORDER BY id_pig
+                                LIMIT :debut, :limite;');
+        } 
+        else {
+            $req = $db->prepare('SELECT 
+                                id_pig, name_pig, type_sex, sex_pig,
+                                weight_pig, mother_pig, father_pig, 
+                                DATE_FORMAT(birthdate_pig, \'%d/%m/%Y à %Hh%imin%ss\') AS birthdate_pig,
+                                DATE_FORMAT(deathdate_pig, \'%d/%m/%Y à %Hh%imin%ss\'),
+                                state_pig, name_photo 
+                                FROM pig
+                                LEFT JOIN photo
+                                ON photo.id_photo = pig.thumbnail_pig
+                                LEFT JOIN sex
+                                ON pig.sex_pig = sex.id_sex
+                                WHERE sex_pig = :sex AND weight_pig >= :weight
+                                ORDER BY id_pig
+                                LIMIT :debut, :limite;');
+        }
+        $req->bindValue('sex', $sex, PDO::PARAM_INT);
+        $req->bindValue('weight', $weight, PDO::PARAM_INT);
+        $req->bindValue('debut', $debut, PDO::PARAM_INT);
+        $req->bindValue('limite', $limite, PDO::PARAM_INT);
+        $req->execute();
+        return $req;
+    }
+
     function getPigs()
     {
         $db = $this->dbConnect();
@@ -53,6 +97,35 @@ class PigManager extends Manager
                            FROM pig
                            WHERE (deathdate_pig - birthdate_pig) != 0
                            OR (deathdate_pig - birthdate_pig) < 0');
+        $row = $req->fetch();
+        return $row;
+    }
+
+    function getNumberOfAlivePigsSorted($sex, $weight)
+    {
+        $db = $this->dbConnect();
+
+        if ($weight != 15)
+        {
+            $req = $db->prepare('SELECT 
+            COUNT(*) AS total_alive_pigs
+            FROM pig
+            WHERE (deathdate_pig - birthdate_pig) != 0
+            OR (deathdate_pig - birthdate_pig) < 0
+            AND sex_pig = :sex AND weight_pig BETWEEN :weight AND (:weight + 5);');
+        }
+        else
+        {
+            $req = $db->prepare('SELECT 
+            COUNT(*) AS total_alive_pigs
+            FROM pig
+            WHERE (deathdate_pig - birthdate_pig) != 0
+            OR (deathdate_pig - birthdate_pig) < 0
+            AND sex_pig = :sex AND weight_pig >= :weight;');
+        }
+        $req->bindValue('sex', $sex, PDO::PARAM_INT);
+        $req->bindValue('weight', $weight, PDO::PARAM_INT);
+        $req->execute();
         $row = $req->fetch();
         return $row;
     }

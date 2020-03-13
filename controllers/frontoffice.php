@@ -18,8 +18,18 @@ function listPigs()
     $limite = 6;
     $debut = ($numpage - 1) * $limite;
     $pigManager = new PigManager;
-    $pigs = $pigManager->getPageOf6Pigs($debut, $limite);
-    $pageLimite = (($pigManager->getNumberOfAlivePigs())['total_alive_pigs'] / $limite);
+
+    if (isset($_POST['selectSex']) && isset($_POST['selectWeight']))
+    {
+        $pigs = $pigManager->getPageOf6PigsSorted($_POST['selectSex'], $_POST['selectWeight'], $debut, $limite);
+        $pageLimite = (($pigManager->getNumberOfAlivePigsSorted($_POST['selectSex'], $_POST['selectWeight']))['total_alive_pigs'] / $limite);
+    }
+    else
+    {
+        $pigs = $pigManager->getPageOf6Pigs($debut, $limite);
+        $pageLimite = (($pigManager->getNumberOfAlivePigs())['total_alive_pigs'] / $limite);
+    }
+
     if (($_GET['page'] > ($pageLimite + 1)) || ($_GET['page'] < 0) || !(is_numeric($_GET['page']))) {
         header("location:index.php?action=listPigs&page=1");
     };
