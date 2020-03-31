@@ -10,14 +10,14 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-category" role="tabpanel" aria-labelledby="pills-category-tab">
             <form action="index.php?action=listPigs&page=1" method="post" id="searchForm">
-                <div class="row">
-                    <div class="col">
+                <div class="form-group row justify-content-center">
+                    <div class="col col-4">
                         <select class="form-control" id="selectSex" name="selectSex">
                             <option value="1">Mâle</option>
                             <option value="0">Femelle</option>
                         </select>
                     </div>
-                    <div class="col">
+                    <div class="col col-4">
                         <select class="form-control" id="selectWeight" name="selectWeight">
                             <option value="0">Entre 0 et 5 kg</option>
                             <option value="5">Entre 5 et 10 kg</option>
@@ -27,20 +27,31 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button class="btn btn-primary mb-2" id="">RECHERCHER</button>
+                    <div class="form-group">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mb-2">RECHERCHER</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
         <div class="tab-pane fade" id="pills-name" role="tabpanel" aria-labelledby="pills-name-tab">
             <form action="index.php?action=listPigs&page=1" method="post" id="nameForm">
-                <div class="row">
-                    <div class="col">
-                        <label for="pigName">Nom du cochon : </label>
-                        <input class="form-control" type="text" name="pigName" id="pigName" autocomplete="off">
+                <div class="row justify-content-center">
+                    <div class="col col-6 text-center">
+                        <div class="form-group">
+
+                            <label for="pigName">Nom du cochon : </label>
+                            <input class="form-control" type="text" name="pigName" id="pigName" autocomplete="off">
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-primary mb-2" id="search2">RECHERCHER</button>
+                    <div class="form-group">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mb-2">RECHERCHER</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -49,7 +60,6 @@
 <div id='resultframe'></div>
 
 <script>
-
     $("#pigName").autocomplete({
         source: 'ajax/pigs.php',
         minLength: 1,

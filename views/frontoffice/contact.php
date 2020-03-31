@@ -1,10 +1,7 @@
 <?php $title = 'Nous contacter'; ?>
 
 <?php ob_start(); ?>
-<div class="container text-center">
-    <h1>Formulaire de contact</h1>
-</div>
-<div class="container contact-form">
+<div class="container contact-form containerPig bg-primary">
     <form>
         <div class="form-group row justify-content-center">
             <label for="inputLastname" class="sr-only">Nom</label>
@@ -69,6 +66,20 @@
             </div>
         </div>
     </form>
+    <div class="row justify-content-end">
+        <div class="col col-5 text-center">
+        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=5.940535068511963%2C48.251726585444175%2C5.954697132110597%2C48.258077112843694&amp;layer=mapnik&amp;marker=48.25490194773941%2C5.947616100311279" style="border: 1px solid black"></iframe>
+            <br/><small><a href="https://www.openstreetmap.org/?mlat=48.25490&amp;mlon=5.94762#map=17/48.25490/5.94762">Afficher une carte plus grande</a></small>
+        </div>
+        <div class="col col-5 align-self-center">
+            <ul class="listContact">
+                <li>Ferme PigTycoon, Rue du Gras, <br>Parey-sous-Montfort, 88800</li>
+                <li>+33 X XX XX XX XX</li>
+                <li>contact@pigtycoon.com</li>
+                <li>SIRET XXX XXX XXX XXXXX</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>

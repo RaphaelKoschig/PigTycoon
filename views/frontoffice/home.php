@@ -1,9 +1,6 @@
 <?php $title = 'Bienvenue à PigTycoon !'; ?>
 
 <?php ob_start(); ?>
-<div class="title">
-    <h1>PigTycoon, élevage de cochons</h1>
-</div>
 <div class="container container-home">
     <div class="row justify-content-center">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

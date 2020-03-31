@@ -1,11 +1,13 @@
 <?php $title = 'Erreur !'; ?>
 
 <?php ob_start(); ?>
-<h1>PigTycoon</h1>
-<p><a href="index.php">Revenir à l'accueil</a></p>
 
-<div>
-    <h3>Une erreur est survenue, pas de bol !</h3>
+<div class="container containerPig bg-primary">
+    <div class="row">
+        <div class="col text-center">
+            <h3>Cet identifiant ne correspond à aucun cochon !</h3>
+        </div>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>

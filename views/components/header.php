@@ -19,16 +19,8 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?action=contact"><img src="./public/images/icons/envelope.svg" alt="icône contact" class="navbar-icons">Contact</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="./public/images/icons/gear.svg" alt="icône gestion" class="navbar-icons">
-            Gestion
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Administration</a>
-            <a class="dropdown-item" href="#">Reproduction</a>
-            <a class="dropdown-item" href="#">Généalogie</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?action=adminListPigs"><img src="./public/images/icons/gear.svg" alt="icône gestion" class="navbar-icons">Gestion</a>
         </li>
       </ul>
 
@@ -39,7 +31,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
     var pathname = window.location.href
-    var truePathname = pathname.split('/')
+    var reg = /\s*\/|&\s*/;
+    var truePathname = pathname.split(reg)
     console.log(truePathname[4])
     $('a[href="' + truePathname[4] + '"]').parent().addClass('active');
   })

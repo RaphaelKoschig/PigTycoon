@@ -33,7 +33,28 @@
             </div>
             <div class="row">
                 <h5>
-                    <p>Durée de vie : <?php echo ($pig['deathtime_pig']) . " jours" ?></p>
+                    <?php if ($pig['deathtime_pig'] <= 0) { ?>
+                        <p>Ce cochon est mort le <?= $pig['deathdate_pig']?></p>
+                    <?php } else { ?>
+                        <p>Durée de vie : <?php echo ($pig['deathtime_pig']) . " jours" ?></p>
+                    <?php } ?>
+                    <p>
+                        <?php
+                        if ($pig['father_pig'] == null) {
+                            echo 'Pas de père';
+                        } else { ?>
+                            Père : <a href="<?php echo ("index.php?action=pig&id=" . $pig['father_pig']) ?>"><?= $pig['father_name'] ?></a>
+                        <?php }
+                        ?>
+                         / 
+                        <?php
+                        if ($pig['mother_pig'] == null) {
+                            echo 'Pas de mère';
+                        } else { ?>
+                            Mère : <a href="<?php echo ("index.php?action=pig&id=" . $pig['mother_pig']) ?>"><?= $pig['mother_name'] ?></a>
+                        <?php }
+                        ?> 
+                    </p>
                     <p>Sexe : <?php echo ($pig['type_sex']) ?></p>
                     <p>Poids : <?php echo ($pig['weight_pig']) ?> Kg</p>
                 </h5>
