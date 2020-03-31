@@ -47,12 +47,19 @@ On peut choisir un mâle et une femelle qui donneront naissance de 1 à 8 nouvea
 # Code
 Arborescence :
 ajax > script ajax
+
 controllers > 2 controllers front et back pour rediriger sur les bonnes pages selon la requête
+
 models > classes d'accès à la base de données
+
 public > css, js et images
+
 services > divers scripts d'actions sur la base, indépendants des templates
+
 sql > fichier de création de bdd
+
 views > backoffice pour les vues gestion, frontoffice pour les vues front utilisateurs, components pour divers composants qui méritaient d'être extraits des vues
+
 index.php > fonctionne en tant que routeur
 
 # Infos supplémentaires
