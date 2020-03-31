@@ -23,15 +23,13 @@
 </head>
 
 <body>
-<div class="content">
 <header>
     <?php require('views/components/header.php'); ?>
 </header>
 
     <?= $content ?>
     <div class="push"></div>
-</div>
-    <footer class="footer bg-primary pt-4">
+<footer class="footer bg-primary pt-4">
     <?php require('views/components/footer.php'); ?>
 </footer>
 
