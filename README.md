@@ -1,5 +1,6 @@
 # PigTycoon
-Ce site est une simulation de gestion de cochons.
+Ce site est une simulation de gestion de cochons. Il a été développé en tant que projet final d'un cours de Développement d'Applications Web dans le cadre de ma Licence Professionnelle.
+J'ai choisi de le créer from scratch sans framework particulier mais en essayant de créer un MVC simple.
 
 ## Installation
 Clonez ou dézippez l'archive dans votre répertoire www de wamp ou laragon pour accéder en local au projet.
@@ -63,6 +64,8 @@ views > backoffice pour les vues gestion, frontoffice pour les vues front utilis
 index.php > fonctionne en tant que routeur
 
 # Infos supplémentaires
+Il existe une persistence des cochons, si jamais il n'y a plus de cochons vivants ou si les cochons sont supprimés de la bdd, un dizaine seront recréés à l'affichage du site.
+
 Pas de connexion utilisateur/admin mais facilement implémentable plus tard avec une table user, des rôles et des variables de sessions.
 Il y avait possibilité d'ajouter le fichier .htaccess pour plus de sécurité et pour de belles url.
-Ces options n'ont pas été implémentées par manque de temps et car elles n'étaient pas demandées dans le sujet.
+Ces deux options n'ont pas été implémentées par manque de temps et car elles n'étaient pas demandées dans le sujet.
